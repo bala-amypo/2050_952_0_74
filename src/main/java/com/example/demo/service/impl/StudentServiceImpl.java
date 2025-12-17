@@ -13,4 +13,8 @@ public class StudentServiceImpl implements StudentService{
     public student poststudent(student st){
         return stdrepo.save(st);
     }
+     public List<Student> getAllStudents() {
+        return new ArrayList<>(details.values());
+    }
+ 
 }

@@ -17,4 +17,6 @@ public class StudentController {
     public student createStudent(@RequestBody student student) {
         return studentService.poststudent(student);
     }
+    @GetMapping
+    public student 
 }
