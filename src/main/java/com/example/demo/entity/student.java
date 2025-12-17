@@ -1,5 +1,8 @@
 package com.example.demo.entity;
 import java.time.LocalDate;
+import jakarta.persistence.entity;
+@entity
+
 public class student{
     private Long id;
     private String name;
@@ -47,6 +50,6 @@ public class student{
         this.cgpa=cgpa;
     }
     public student(){
-        
+
     }
 }
