@@ -6,6 +6,7 @@ import com.example.demo.entity.student;
 public class StudentServiceImpl implements StudentService{
     @override
     public student poststudent(student st){
+        ret
 
     }
 
