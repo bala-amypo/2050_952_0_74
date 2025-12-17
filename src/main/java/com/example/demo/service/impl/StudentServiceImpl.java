@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import java.util.List;
+import java.util.Optional;   // ✅ IMPORT THIS
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,18 +31,20 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student updateStudent(Long id, Student student) {
-        Student existing = repository.findById(id).orElse(null);
+    public Student updateStudent(Long id, Student studentDetails) {
 
-        if (existing != null) {
-            existing.setName(student.getName());
-            existing.setDept(student.getDept());
-            existing.setDob(student.getDob());
-            existing.setCgpa(student.getCgpa());
+        Optional<Student> optionalStudent = repository.findById(id);
 
-            return repository.save(existing);
+        if (optionalStudent.isPresent()) {
+            Student existingStudent = optionalStudent.get();
+            existingStudent.setName(studentDetails.getName());
+            existingStudent.setDept(studentDetails.getDept());
+            existingStudent.setDob(studentDetails.getDob());
+            existingStudent.setCgpa(studentDetails.getCgpa());
+            return repository.save(existingStudent);
+        } else {
+            return null;
         }
-        return null;
     }
 
     @Override
