@@ -12,36 +12,40 @@ import com.example.demo.repository.StudentRepository;
 public class StudentServiceImpl implements StudentService {
 
     @Autowired
-    StudentRepository stdrepo;
+    private StudentRepository repository;
 
     @Override
-    public Student postStudent(Student st) {
-        return stdrepo.save(st);
+    public Student saveStudent(Student student) {
+        return repository.save(student);
     }
 
     @Override
     public List<Student> getAllStudents() {
-        return stdrepo.findAll();
+        return repository.findAll();
     }
 
     @Override
     public Student getStudentById(Long id) {
-        return stdrepo.findById(id).orElse(null);
+        return repository.findById(id).orElse(null);
     }
 
     @Override
-    public Student updateStudent(Long id, Student st) {
-        Student existing = stdrepo.findById(id).orElse(null);
+    public Student updateStudent(Long id, Student student) {
+        Student existing = repository.findById(id).orElse(null);
+
         if (existing != null) {
-            existing.setName(st.getName());
-            existing.setAge(st.getAge());
-            return stdrepo.save(existing);
+            existing.setName(student.getName());
+            existing.setDept(student.getDept());
+            existing.setDob(student.getDob());
+            existing.setCgpa(student.getCgpa());
+
+            return repository.save(existing);
         }
         return null;
     }
 
     @Override
     public void deleteStudent(Long id) {
-        stdrepo.deleteById(id);
+        repository.deleteById(id);
     }
 }

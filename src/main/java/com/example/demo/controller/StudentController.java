@@ -13,35 +13,37 @@ import com.example.demo.service.StudentService;
 public class StudentController {
 
     @Autowired
-    StudentService service;
+    private StudentService service;
 
-   
+    // CREATE
     @PostMapping
-    public Student addStudent(@RequestBody Student st) {
-        return service.postStudent(st);
+    public Student createStudent(@RequestBody Student student) {
+        return service.saveStudent(student);
     }
 
+    // READ ALL
     @GetMapping
     public List<Student> getAllStudents() {
         return service.getAllStudents();
     }
 
-   
+    // READ BY ID
     @GetMapping("/{id}")
     public Student getStudentById(@PathVariable Long id) {
         return service.getStudentById(id);
     }
 
+    // UPDATE
     @PutMapping("/{id}")
     public Student updateStudent(@PathVariable Long id,
-                                 @RequestBody Student st) {
-        return service.updateStudent(id, st);
+                                 @RequestBody Student student) {
+        return service.updateStudent(id, student);
     }
 
-   
+    // DELETE
     @DeleteMapping("/{id}")
     public String deleteStudent(@PathVariable Long id) {
         service.deleteStudent(id);
-        return "Student deleted with id: " + id;
+        return "Student deleted successfully with id: " + id;
     }
 }
