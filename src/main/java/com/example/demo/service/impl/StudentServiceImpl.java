@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
 import java.util.List;
-import java.util.Optional;   // ✅ IMPORT THIS
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,21 +15,25 @@ public class StudentServiceImpl implements StudentService {
     @Autowired
     private StudentRepository repository;
 
+    // CREATE
     @Override
     public Student postStudent(Student student) {
         return repository.save(student);
     }
 
+    // READ ALL
     @Override
     public List<Student> getAllStudents() {
         return repository.findAll();
     }
 
+    // READ BY ID
     @Override
     public Student getStudentById(Long id) {
         return repository.findById(id).orElse(null);
     }
 
+    // UPDATE (using Optional)
     @Override
     public Student updateStudent(Long id, Student studentDetails) {
 
@@ -41,12 +45,14 @@ public class StudentServiceImpl implements StudentService {
             existingStudent.setDept(studentDetails.getDept());
             existingStudent.setDob(studentDetails.getDob());
             existingStudent.setCgpa(studentDetails.getCgpa());
+
             return repository.save(existingStudent);
-        } else {
-            return null;
         }
+
+        return null; // if student not found
     }
 
+    // DELETE
     @Override
     public void deleteStudent(Long id) {
         repository.deleteById(id);

@@ -5,13 +5,13 @@ import com.example.demo.entity.Student;
 
 public interface StudentService {
 
-    Student saveStudent(Student student);
+    Student postStudent(Student student);
 
     List<Student> getAllStudents();
 
     Student getStudentById(Long id);
 
-    Student updateStudent(Long id, Student student);
+    Student updateStudent(Long id, Student studentDetails);
 
     void deleteStudent(Long id);
 }
