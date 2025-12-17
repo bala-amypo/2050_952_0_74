@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Service
 public class StudentServiceImpl implements StudentService{
     @Autowired
+    
     StudentRepository stdreps;
     @Override
     public student poststudent(student st){
