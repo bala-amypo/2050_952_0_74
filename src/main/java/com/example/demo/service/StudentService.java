@@ -1,4 +1,4 @@
 package.com.example.demo.service;
-package interface StudentService{
-    
+public interface StudentService{
+    student
 }
