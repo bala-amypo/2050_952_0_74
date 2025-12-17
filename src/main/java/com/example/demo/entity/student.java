@@ -39,4 +39,14 @@ public class student{
     public void setCgpa(float cgpa) {
         this.cgpa=cgpa;
     }
+    public student(Long id,String name,String dept,LocalDate dob,float cgpa){
+        this.id=id;
+        this.name=name;
+        this.dept=dept;
+        this.dob=dob;
+        this.cgpa=cgpa;
+    }
+    public student(){
+        
+    }
 }
