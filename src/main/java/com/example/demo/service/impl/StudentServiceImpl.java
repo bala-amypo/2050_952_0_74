@@ -30,7 +30,7 @@ public class StudentServiceImpl implements StudentService {
     }
     @Override
     public String updateData(Long id,Student st){
-    boolean status=stdRepo.existById(id);
+    boolean status=repository.existById(id);
     if(status){
       st.setId(id);
       repository.save(st);
@@ -39,6 +39,7 @@ public class StudentServiceImpl implements StudentService {
     }
     else{
     return "Student with ID "+id+ "not found";
+    }
     }
     
     @Override
