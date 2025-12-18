@@ -9,7 +9,7 @@ public interface StudentService {
 
     List<Student> getAllStudents();
 
-    Student getStudentById(Long id);
+    OptionalStudent getStudentById(Long id);
 
     Student updateStudent(Long id, Student studentDetails);
 

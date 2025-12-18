@@ -29,7 +29,7 @@ public class StudentController {
 
     // READ BY ID
     @GetMapping("/{id}")
-    public Student getStudentById(@PathVariable Long id) {
+    public Optional<Student> getStudentById(@PathVariable Long id) {
         return service.getStudentById(id);
     }
 
