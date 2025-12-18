@@ -16,19 +16,19 @@ public class StudentController {
     private StudentService service;
 
     // CREATE
-    @PostMapping
+    @PostMapping("postst")
     public Student createStudent(@RequestBody Student student) {
         return service.postStudent(student);
     }
 
     // READ ALL
-    @GetMapping
+    @GetMapping("getst")
     public List<Student> getAllStudents() {
         return service.getAllStudents();
     }
 
     // READ BY ID
-    @GetMapping("/{id}")
+    @GetMapping("getst/{id}")
     public Optional<Student> getStudentById(@PathVariable Long id) {
         return service.getStudentById(id);
     }
