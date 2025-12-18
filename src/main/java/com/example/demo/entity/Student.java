@@ -8,7 +8,7 @@ public class Student{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
-    @NotNull(message="Name should not be null")
+    @NotEmpty(message="Name should not be empty")
     private String name;
     private String dept;
     private LocalDate dob;
