@@ -15,8 +15,8 @@ public class StudentServiceImpl implements StudentService {
     private StudentRepository repository;
 
     @Override
-    public Student postStudent(Student student) {
-        return repository.save(student);
+    public Student postStudent(Student st) {
+        return repository.save(st);
     }
 
     @Override
@@ -28,15 +28,19 @@ public class StudentServiceImpl implements StudentService {
     public Optional<Student> getStudentById(Long id) {
         return repository.findById(id);
     }
-
     @Override
-    public String updateStudent(Long id, Student st) {
-    boolean status=repository.existsById(id);
-    return " ";
-}
+    public String updateData(Long id,Student st){
+    boolean status=stdRepo.existById(id);
+    if(status){
+      st.setId(id);
+      repository.save(st);
+      return "Student updated successfully ";
 
-        
-
+    }
+    else{
+    return "Student with ID "+id+ "not found";
+    }
+    
     @Override
     public void deleteStudent(Long id) {
         repository.deleteById(id);
