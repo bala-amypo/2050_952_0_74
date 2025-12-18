@@ -2,14 +2,14 @@ package com.example.demo.service;
 
 import java.util.List;
 import com.example.demo.entity.Student;
-
+import java.util.Optional;
 public interface StudentService {
 
     Student postStudent(Student student);
 
     List<Student> getAllStudents();
 
-    OptionalStudent getStudentById(Long id);
+    Optional<Student> getStudentById(Long id);
 
     Student updateStudent(Long id, Student studentDetails);
 
