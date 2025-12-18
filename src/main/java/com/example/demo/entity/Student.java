@@ -11,6 +11,7 @@ public class Student{
     @NotEmpty(message="Name should not be empty")
     private String name;
     private String dept;
+    @Past
     private LocalDate dob;
     private float cgpa;
     public Long getId() {
