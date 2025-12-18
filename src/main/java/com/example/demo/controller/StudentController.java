@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import java.util.*;
-
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,13 +16,13 @@ public class StudentController {
     private StudentService service;
 
     // CREATE
-    @PostMapping("postst")
+    @PostMapping("/postst")
     public Student createStudent(@Valid @RequestBody Student student) {
         return service.postStudent(student);
     }
 
     // READ ALL
-    @GetMapping("getst")
+    @GetMapping("/getst")
     public List<Student> getAllStudents() {
         return service.getAllStudents();
     }
@@ -35,7 +35,7 @@ public class StudentController {
 
     // UPDATE
     @PutMapping("/update/{id}")
-    public String updateStudent(@PathVariable Long id,@RequestBody Student st) {
+    public String updateStudent(@PathVariable Long id, @RequestBody Student st) {
         return service.updateStudent(id, st);
     }
 
@@ -43,6 +43,5 @@ public class StudentController {
     @DeleteMapping("/delete/{id}")
     public String deleteStudent(@PathVariable Long id) {
         return service.deleteStudent(id);
-
     }
 }
