@@ -24,13 +24,12 @@ public class StudentServiceImpl implements StudentService {
     public List<Student> getAllStudents() {
         return repository.findAll();
     }
-    
+
     @Override
     public Student getStudentById(Long id) {
         return repository.findById(id).orElse(null);
     }
 
-    // UPDATE (using Optional)
     @Override
     public Student updateStudent(Long id, Student studentDetails) {
 
@@ -46,10 +45,10 @@ public class StudentServiceImpl implements StudentService {
             return repository.save(existingStudent);
         }
 
-        return null; // if student not found
+        return null; 
     }
 
-    // DELETE
+
     @Override
     public void deleteStudent(Long id) {
         repository.deleteById(id);
