@@ -44,6 +44,13 @@ public class StudentServiceImpl implements StudentService {
     
     @Override
     public String deleteStudent(Long id) {
-        repository.deleteById(id);
+        boolean status=repository.existsById(id);
+        if(status){
+            repository.deleteById(id);
+            return "Student Deleted Successfully";
+        }
+        else{
+            r
+        }
     }
 }

@@ -28,19 +28,19 @@ public class StudentController {
     }
 
     // READ BY ID
-    @GetMapping("getst/{id}")
+    @GetMapping("/getst/{id}")
     public Optional<Student> getStudentById(@PathVariable Long id) {
         return service.getStudentById(id);
     }
 
     // UPDATE
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     public String updateStudent(@PathVariable Long id,@RequestBody Student st) {
         return service.updateStudent(id, st);
     }
 
     // DELETE
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public String deleteStudent(@PathVariable Long id) {
         service.deleteStudent(id);
         return "Student deleted with id: " + id;
