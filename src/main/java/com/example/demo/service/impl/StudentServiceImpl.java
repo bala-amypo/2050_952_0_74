@@ -30,9 +30,10 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student updateStudent(Long id, Student st) {
+    public String updateStudent(Long id, Student st) {
     boolean status=repository.existsById(id);
-
+    return " ";
+}
 
         
 
