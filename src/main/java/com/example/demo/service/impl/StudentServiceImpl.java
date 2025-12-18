@@ -29,8 +29,8 @@ public class StudentServiceImpl implements StudentService {
         return repository.findById(id);
     }
     @Override
-    public String updateData(Long id,Student st){
-    boolean status=repository.existById(id);
+    public String updateStudent(Long id,Student st){
+    boolean status=repository.existsById(id);
     if(status){
       st.setId(id);
       repository.save(st);
