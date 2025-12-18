@@ -13,6 +13,7 @@ public class Student{
     private String dept;
     @Past
     private LocalDate dob;
+    @Min(value = 8, message = "CGPA must be at least 8")
     private float cgpa;
     public Long getId() {
         return id;
