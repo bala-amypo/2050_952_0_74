@@ -15,19 +15,16 @@ public class StudentServiceImpl implements StudentService {
     @Autowired
     private StudentRepository repository;
 
-    // CREATE
     @Override
     public Student postStudent(Student student) {
         return repository.save(student);
     }
 
-    // READ ALL
     @Override
     public List<Student> getAllStudents() {
         return repository.findAll();
     }
-
-    // READ BY ID
+    
     @Override
     public Student getStudentById(Long id) {
         return repository.findById(id).orElse(null);
