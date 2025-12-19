@@ -11,7 +11,7 @@ public class Student{
     @NotEmpty(message="Name should not be empty")
     private String name;
     private String dept;
-    @Past
+    @Past(message="dob should be past")
     private LocalDate dob;
     @Min(value = 8, message = "CGPA must be at least 8")
     private float cgpa;
