@@ -10,7 +10,7 @@ import com.example.demo.repository.StudentRepository;
 
 @Service
 public class StudentServiceImpl implements StudentService {
-    
+
     @Autowired
     private StudentRepository repository;
 
@@ -34,6 +34,8 @@ public class StudentServiceImpl implements StudentService {
     if(status){
       st.setId(id);
       repository.save(st);
+      if(st.getName().equals("jose");
+      throw new DummyException(
       return "Student updated successfully ";
 
     }
