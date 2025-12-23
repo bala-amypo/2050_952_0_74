@@ -10,7 +10,7 @@ import com.example.demo.repository.StudentRepository;
 
 @Service
 public class StudentServiceImpl implements StudentService {
-
+    
     @Autowired
     private StudentRepository repository;
 
